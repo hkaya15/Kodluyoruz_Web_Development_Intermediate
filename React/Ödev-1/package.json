@@ -1,0 +1,24 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/React/Ödev-1/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkaya15/Kodluyoruz_Web_Development_Intermediate.git"
+  },
+  "author": "kayahuseyin15@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hkaya15/Kodluyoruz_Web_Development_Intermediate/issues"
+  },
+  "homepage": "https://github.com/hkaya15/Kodluyoruz_Web_Development_Intermediate#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "slugify": "^1.6.5"
+  }
+}
