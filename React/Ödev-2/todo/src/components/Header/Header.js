@@ -13,7 +13,7 @@ function Header({setList,list}){
       if(duty === ""){
         return false;
       }
-      setList([...list,duty])
+      setList([...list,{value: duty,class:false}])
     }
    return <header>
         <h1>todos</h1>

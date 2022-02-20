@@ -1,14 +1,19 @@
-function TodoList({wholeList}){
+
+function TodoList({wholeList, setList}){
+    
     return <section className="main">
           <input className="toggle-all" type="checkbox"/>
           <label htmlFor="toggle-all">Mark all as complete</label>
 
           <ul className="todo-list">
-            {wholeList && wholeList.map((duty,index)=>{
-              return <li key={index}>
+            {wholeList.map((key,i)=>{
+              return <li key={i} className={key.class === false ? "" : "completed"}>
                 <div className="view">
-                  <input className="toggle" type="checkbox"/>
-                  <label>{duty}</label>
+                  <input className="toggle" type="checkbox" onChange={()=>{
+                    wholeList[i].class=!wholeList[i].class;
+                    setList([...wholeList])
+                  }}/>
+                  <label>{key.value}</label>
                   <button className="destroy"></button>
                 </div>
               </li>
@@ -19,33 +24,3 @@ function TodoList({wholeList}){
 
 
 export default TodoList;
-
-
-function deneme(){
-  return  <ul>
-     {/* Completed*/}
-     <li className="completed">
-                <div className="view">
-                  <input className="toggle" type="checkbox"/>
-                  <label>Learn JavaScript</label>
-                  <button className="destroy"></button>
-                </div>
-            </li>
-            {/* NotCompleted */}
-            <li>
-              <div className="view">
-                <input className="toggle" type="checkbox"/>
-                <label>Learn React</label>
-                <button className="destroy"></button>
-              </div>
-            </li>
-            {/* NotCompleted*/}
-            <li>
-              <div className="view">
-                <input className="toggle" type="checkbox"/>
-                <label>Have a life!</label>
-                <button className="destroy"></button>
-              </div>
-            </li>
-  </ul>
-}

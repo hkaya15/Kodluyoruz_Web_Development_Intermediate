@@ -4,13 +4,13 @@ import Footer from "../Footer/Footer";
 import {useState} from "react";
 
 function Main(){
-  const [todoList,setList]=useState(["Learn React"])
+  const [todoList,setList]=useState([{value:"Learn React", class:false}]);
     return <section className="todoapp">
     <Header setList={setList} list={todoList}/>
     {/* Main */}
-    <TodoList wholeList={todoList}/>  
+    <TodoList wholeList={todoList} setList={setList}/>  
     {/* Footer */}
-    <Footer/>
+    <Footer wholeList={todoList}/>
   </section>
 }
 

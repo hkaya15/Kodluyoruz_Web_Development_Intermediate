@@ -1,9 +1,21 @@
-function Footer(){
+let count=0;
+
+function Footer({wholeList}){
+  let arr=Object.entries(wholeList);
+  let completedArr=arr.map(function([key,value]){
+    return value.class===true
+  }).reduce(function (acc,curr) {
+    return acc[curr] ? ++acc[curr] : acc[curr]=1,acc
+  },{})
+
+  
     return <footer className="footer">
     {/* Count */}
     <span className="todo-count">
-      <strong>2 </strong>
-      items left
+        <strong> {
+          count= completedArr["true"]!==undefined ? arr.length-Number(completedArr["true"]) : arr.length
+          } 
+        </strong> items left
     </span>
     {/* Filters */}
    <ul className="filters">
@@ -18,7 +30,17 @@ function Footer(){
     </li>
    </ul>
    {/* Clear Complete*/}
-   <button className="clear-completed"></button>
+ 
+   {wholeList.some((el)=>{
+   if(el.class===true){
+      return true
+    }
+    return false
+   }) && <button className="clear-completed">Clear completed</button>}
+   
+   
+   
+   
   </footer>
 }
 
