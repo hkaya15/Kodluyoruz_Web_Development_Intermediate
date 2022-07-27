@@ -10,7 +10,7 @@ function Main(){
     {/* Main */}
     <TodoList wholeList={todoList} setList={setList}/>  
     {/* Footer */}
-    <Footer wholeList={todoList}/>
+    <Footer wholeList={todoList} setList={setList}/>
   </section>
 }
 
