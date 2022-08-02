@@ -1,6 +1,7 @@
 let count = 0;
 
-function Footer({ wholeList, setList }) {
+
+function Footer({ wholeList, setList, complete, setComplete }) {
   let arr = Object.entries(wholeList);
   let completedArr = arr.map(function ([key, value]) {
     return value.class === true
@@ -8,6 +9,29 @@ function Footer({ wholeList, setList }) {
     return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
   }, {})
 
+  const onActive = () => {
+
+    let act = complete.filter(e => e.class === false)
+
+    setList([...act])
+
+
+
+  }
+
+  const onAll = () => {
+    setList([...complete])
+
+  }
+
+  const onComplete = () => {
+
+    let act = complete.filter(e => e.class === true)
+    setList([...act])
+
+
+
+  }
 
   return <footer className="footer">
     {/* Count */}
@@ -20,28 +44,28 @@ function Footer({ wholeList, setList }) {
     {/* Filters */}
     <ul className="filters">
       <li>
-        <a className="selected">All</a>
+        <a className="selected" onClick={onAll}>All</a>
       </li>
       <li>
-        <a>Active</a>
+        <a onClick={onActive}> Active </a>
       </li>
       <li>
-        <a>Completed</a>
+        <a onClick={onComplete}>Completed</a>
       </li>
     </ul>
     {/* Clear Complete*/}
 
-    {wholeList.some((el) => {
+    {complete.some((el) => {
       if (el.class === true) {
         return true
       }
       return false
     }) && <button className="clear-completed" onClick={() => {
-     
-      const value = wholeList.filter(e => e.class === false)
+
+      const value = complete.filter(e => e.class === false)
 
       setList([...value])
-
+      setComplete([...value])
     }}>Clear completed</button>}
 
 

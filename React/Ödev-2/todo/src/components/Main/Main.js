@@ -5,12 +5,13 @@ import {useState} from "react";
 
 function Main(){
   const [todoList,setList]=useState([{value:"Learn React", class:false}]);
+  const [complete,setCompleteList]=useState([{value:"Learn React", class:false}]);
     return <section className="todoapp">
-    <Header setList={setList} list={todoList}/>
+    <Header setList={setList} list={todoList} setComplete={setCompleteList}/>
     {/* Main */}
-    <TodoList wholeList={todoList} setList={setList}/>  
+    <TodoList wholeList={todoList} setList={setList} complete={complete}  setComplete={setCompleteList}/>  
     {/* Footer */}
-    <Footer wholeList={todoList} setList={setList}/>
+    <Footer wholeList={todoList} setList={setList} complete={complete} setComplete={setCompleteList}/>
   </section>
 }
 

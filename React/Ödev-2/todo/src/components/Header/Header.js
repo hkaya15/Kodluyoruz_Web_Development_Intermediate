@@ -1,6 +1,6 @@
 import {useState,useEffect} from 'react';
 
-function Header({setList,list}){
+function Header({setList,list, setComplete}){
     const [duty, setDuty]=useState("");
     useEffect(()=>{
       setDuty("")
@@ -14,6 +14,7 @@ function Header({setList,list}){
         return false;
       }
       setList([...list,{value: duty,class:false}])
+      setComplete([...list,{value: duty,class:false}])
     }
    return <header>
         <h1>todos</h1>

@@ -1,16 +1,17 @@
 
 
-function TodoList({ wholeList, setList }) {
+function TodoList({ wholeList, setList , complete, setComplete}) {
 
   const deleteItem = (key) => {
-    wholeList.map((e) =>{
+    complete.map((e) =>{
       if (e === key) {
-        const index = wholeList.indexOf(e);
-        wholeList.splice(index, 1)
-        setList([...wholeList])
-       
+        const index = complete.indexOf(e);
+        complete.splice(index, 1)
+        setList([...complete])
+        setComplete([...complete])
       }
     })
+   
   }
 
   return <section className="main">
@@ -26,7 +27,7 @@ function TodoList({ wholeList, setList }) {
             
                 wholeList[i].class = !wholeList[i].class;
                 setList([...wholeList])
-              
+                setComplete([...wholeList])
                
                 
              
@@ -34,7 +35,7 @@ function TodoList({ wholeList, setList }) {
             <label>{key.value}</label>
             <button className="destroy" onClick={() =>{
               deleteItem(key)
-            
+              
             }}></button>
           </div>
         </li>
