@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Todo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an assignment that is coded for [Patika.dev](https://www.patika.dev/tr).
+
+## Screenshots
+
+<img src="src/img/todo-1.png" />
+<img src="src/img/todo-2.png"/>
 
 ## Available Scripts
 
