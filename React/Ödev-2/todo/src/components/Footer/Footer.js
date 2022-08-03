@@ -1,7 +1,11 @@
+import {useState} from "react"
+
 let count = 0;
 
 
 function Footer({ wholeList, setList, complete, setComplete }) {
+  const [isActive, setActive] = useState(0);
+
   let arr = Object.entries(wholeList);
   let completedArr = arr.map(function ([key, value]) {
     return value.class === true
@@ -9,8 +13,12 @@ function Footer({ wholeList, setList, complete, setComplete }) {
     return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
   }, {})
 
-  const onActive = () => {
+  const handleToggle = (e) => {
+    setActive(Number(e.target.accessKey));
+  };
 
+  const onActive = (e) => {
+    handleToggle(e)
     let act = complete.filter(e => e.class === false)
 
     setList([...act])
@@ -19,19 +27,23 @@ function Footer({ wholeList, setList, complete, setComplete }) {
 
   }
 
-  const onAll = () => {
+  const onAll = (e) => {
+    handleToggle(e)
     setList([...complete])
 
   }
 
-  const onComplete = () => {
-
+  const onComplete = (e) => {
+    handleToggle(e)
     let act = complete.filter(e => e.class === true)
     setList([...act])
 
 
 
   }
+
+ 
+
 
   return <footer className="footer">
     {/* Count */}
@@ -43,14 +55,14 @@ function Footer({ wholeList, setList, complete, setComplete }) {
     </span>
     {/* Filters */}
     <ul className="filters">
-      <li>
-        <a className="selected" onClick={onAll}>All</a>
+      <li >
+        <a  accessKey="0" className={isActive === 0 ? "selected": "unselected" }onClick={onAll}>All</a>
       </li>
-      <li>
-        <a onClick={onActive}> Active </a>
+      <li >
+        <a accessKey="1" className={isActive === 1 ? "selected": "unselected" } onClick={onActive}> Active </a>
       </li>
-      <li>
-        <a onClick={onComplete}>Completed</a>
+      <li >
+        <a accessKey="2" className={isActive === 2 ? "selected": "unselected" } onClick={onComplete}>Completed</a>
       </li>
     </ul>
     {/* Clear Complete*/}

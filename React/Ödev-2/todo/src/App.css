@@ -316,7 +316,8 @@ body {
 }
 
 .filters li a.selected {
-	border-color: rgba(175, 47, 47, 0.2);
+	border-color: rgba(111,111,111,0.2);
+	border-width: 1px;
 }
 
 .clear-completed,
