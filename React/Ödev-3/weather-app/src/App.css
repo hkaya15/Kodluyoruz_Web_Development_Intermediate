@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  margin: 0px 25px;
+}
+.App-header {
+  background-color: #f1f9fa;
+  height: 100px;
+}
+
+
+.Select{
+  padding-left: 25px;
+  padding-top: 35px;
+  text-align: start;
+  height: 80px;
+  width: 200px;
+  }
+
+.Cards{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  gap:1px
+}
+
+.Today{
+  background: gray;
+  box-shadow: 10px 30px #888888 ;
+  border: 1px inset black;
+  
+}
